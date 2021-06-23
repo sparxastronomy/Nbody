@@ -3,7 +3,7 @@
 The initial putrubation are as follows:
 ![perturbations](initial_perturbations.jpg)
 
-Now, remeber, that here the number of particles taken are more just as an exagration to what's actually been taken while running the simulation.        
+Now, remeber, that here the number of particles taken are more just as an exaggeration to what's actually been taken while running the simulation.        
 
 ## Working
 The code is a simple implemantation of pacticle - pair method, where force is computed for each pair and then summed over for each such pair After that we using the Leapfrog integration we calculate the postion and velocity, and iterate over again.
