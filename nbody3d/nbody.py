@@ -48,12 +48,17 @@ def accleration(pos, mass, G, softening):
 def energy(pos, vel, mass, G):
     """
     Get kinetic energy (KE) and potential energy (PE) of simulation
-    pos is N x 3 matrix of positions
-    vel is N x 3 matrix of velocities
-    mass is an N x 1 vector of masses
-    G is Newton's Gravitational constant
-    KE is the kinetic energy of the system
-    PE is the potential energy of the system
+    Parameters
+    ----------------------------------------
+    pos  : N x 3 matrix of positions
+    vel  : N x 3 matrix of velocities
+    mass : N x 1 vector of masses
+    G    : Newton's Gravitational constant
+
+    Returns:
+    ----------------------------------------
+    KE   :  kinetic energy of the system
+    PE   :  potential energy of the system
     """
     # Kinetic Energy:
     KE = 0.5 * np.sum(np.sum(mass * vel**2))
