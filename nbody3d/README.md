@@ -1,12 +1,12 @@
 # Simple N body simulation
 
-The initial putrubation are as follows:
+The initial perturbation are as follows:
 ![perturbations](initial_perturbations.jpg)
 
-Now, remeber, that here the number of particles taken are more just as an exaggeration to what's actually been taken while running the simulation.        
+Now, remember, that here the number of particles taken are more just as an exaggeration to what's actually been taken while running the simulation.        
 
 ## Working
-The code is a simple implemantation of pacticle - pair method, where force is computed for each pair and then summed over for each such pair After that we using the Leapfrog integration we calculate the postion and velocity, and iterate over again.
+The code is a simple implementation of particle - pair method, where force is computed for each pair and then summed over for each such pair After that we using the Leapfrog integration we calculate the postion and velocity, and iterate over again.
 
 ### There are three main functions required for doing the simualation.
 
