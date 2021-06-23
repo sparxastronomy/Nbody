@@ -9,11 +9,16 @@ from tqdm import tqdm
 def accleration(pos, mass, G, softening):
     """
     Calculate the acceleration on each particle due to Newton's Law 
-    pos  is an N x 3 matrix of positions
-    mass is an N x 1 vector of masses
-    G is Newton's Gravitational constant
-    softening is the softening length
-    a is N x 3 matrix of accelerations
+    parameters:
+    ------------------------------------
+    pos  :  N x 3 matrix of positions
+    mass :  N x 1 vector of masses
+    G    :  Newton's Gravitational constant
+    softening : softening length
+
+    Returns:
+    ------------------------------------
+    a    :  N x 3 matrix of accelerations
     """
     # positions r = [x,y,z] for all particles
     x = pos[:, 0:1]
@@ -89,8 +94,8 @@ def main(N, tEnd, dt, softening=0.1, energyplot=False, plotRealTime=True):
     """
 
     # Simulation parameters
-    t = 0      # current time of the simulation
-    G = 1.0    # Newton's Gravitational Constant
+    t = 0                # current time of the simulation
+    G = 6.674*1e-11      # Newton's Gravitational Constant
     plotRealTime = True  # switch on for plotting as the simulation goes along
 
     # Generate Initial Conditions
