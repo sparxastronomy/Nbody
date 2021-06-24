@@ -28,7 +28,7 @@ $ python -m nbody3d.nbody
 ```
 
 ## Working
-The code is a simple implementation of particle - pair method, where force is computed for each pair and then summed over for each such pair After that we using the Leapfrog integration we calculate the postion and velocity, and iterate over again.
+The code is a simple implementation of particle - pair method, where force is computed for each pair and then summed over for each such pair. After that using the Leapfrog integration we calculate the postion and velocity, and iterate over again.
 
 ### There are three main functions required for doing the simualation.
 ```{.python #accleration}
@@ -68,11 +68,11 @@ Note that the grid form is a cube, so make sure that the $N$ you chose is a cube
 ## Sample output
 I ran the code for $N = 1000$ and here is the output
 
-![Scatter plot after running the simulation](/figures/nbody3d/nbody1000.png)
+![Scatter plot after running the simulation](figures/nbody3d/nbody1000.png)
 
 and here is the energy associated with the evolution        
 
-![Energy evolution plot of the simulation](/figures/nbody3d/nbody1000eng1.png)
+![Energy evolution plot of the simulation](figures/nbody3d/nbody1000eng1.png)
 
 
 $$ \text{Have fun with this}$$

@@ -1,223 +1,238 @@
-@import url('https://fonts.googleapis.com/css?family=Zilla+Slab:300,400,500&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Zilla+Slab:300,400,500&display=swap");
 
 body {
-        font-family: 'Zilla Slab', serif;
-        font-size: 16pt;
-        font-weight: 300;
-        min-height: 100vh;
+  font-family: "Zilla Slab", serif;
+  font-size: 16pt;
+  font-weight: 300;
+  min-height: 100vh;
 }
 
-body p{
-        text-align: justify;
+body p {
+  text-align: justify;
 }
 
 main {
-        background: #eee;
+  background: #eee;
 }
 
 h1 {
-        margin: 1em 0 0.5em -1em;
-        padding-left: 0.5em;
-        border-bottom: thin solid black;
+  margin: 1em 0em;
+  padding-bottom: 0.5em;
+  text-align: center;
+  font-size: 30;
+  font-weight: 580;
+  border-bottom: thin solid black;
 }
 
 h2 {
-        margin-top: 15pt;
-        border-bottom: thin solid black;
+  display: inline-block;
+  margin-top: 15pt;
+}
+
+h2:after {
+  display: block;
+  content: "";
+  background: #00a75d;
+  width: auto;
+  height: 6px;
+  border-radius: 3px;
+  margin-top: 5px;
 }
 
 strong {
-        font-weight: 500;
+  font-weight: 500;
 }
 
 nav ul {
-        color: white;
+  color: white;
 }
 
 nav li a {
-        color: white;
+  color: white;
 }
 
 nav li a:hover {
-        color: white;
+  color: white;
 }
 
 .annotated-code p {
-        margin-bottom: 2pt;
-        font-family: "Cantarell", sans-serif;
-        font-size: smaller;
+  margin-bottom: 2pt;
+  font-family: "Cantarell", sans-serif;
+  font-size: smaller;
 }
 
 div.sourceCode {
-        padding: 0;
-        margin: 0.2em 2em 1em 2em;
-        border-radius: 5pt;
-        box-shadow: 1px 1px 3px 0px #ccc;
+  padding: 0;
+  margin: 0.2em 2em 1em 2em;
+  border-radius: 5pt;
+  box-shadow: 1px 1px 3px 0px #ccc;
 }
 
 pre.sourceCode {
-        /* background: #eee; */
-        color: inherit;
-        margin: 0;
-        border-left: thick solid #888;
-        padding: 10pt 10pt 10pt 20pt;
-        font-size: 1rem;
+  /* background: #eee; */
+  color: inherit;
+  margin: 0;
+  border-left: thick solid rgb(37, 124, 195);
+  padding: 10pt 10pt 10pt 20pt;
+  font-size: 1rem;
 }
 
 div.doctestResult {
-        padding: 0;
-        margin: 0em 2em 1em 2em;
-        border-radius: 0 0 5pt 5pt;
-        box-shadow: 1px 1px 3px 0px #ccc;
+  padding: 0;
+  margin: 0em 2em 1em 2em;
+  border-radius: 0 0 5pt 5pt;
+  box-shadow: 1px 1px 3px 0px #ccc;
 }
 
 .programOutput {
-        font-family: monospace;
-        background: #fafafa;
-        color: inherit;
-        margin: 0;
-        border-radius: 0 0 5pt 5pt;
-        border-left: thick solid #586;
-        padding: 10pt 10pt 10pt 20pt;
-        font-size: 1rem;
+  font-family: monospace;
+  background: #fafafa;
+  color: inherit;
+  margin: 0;
+  border-radius: 0 0 5pt 5pt;
+  border-left: thick solid #586;
+  padding: 10pt 10pt 10pt 20pt;
+  font-size: 1rem;
 }
 
 pre.ansi2html-content {
-        margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .programOutput .ansi32 {
-        color: green;
+  color: green;
 }
 
 .programOutput .ansi31 {
-        color: red;
+  color: red;
 }
 
 .programOutput .ansi1 {
-        font-weight: bold;
+  font-weight: bold;
 }
 
 .doctestResult pre.sourceCode {
-        border-color: #484;
+  border-color: #484;
 }
 
 .doctestInput pre.sourceCode {
-        border-color: #568;
+  border-color: #568;
 }
 
 .doctestInput div.sourceCode {
-        border-radius: 5pt 5pt 0 0;
-        margin-bottom: 0;
+  border-radius: 5pt 5pt 0 0;
+  margin-bottom: 0;
 }
 
 .doctestResult div.sourceCode {
-        border-radius: 0 0 5pt 5pt;
-        margin-top: 0;
-        border-top: thin solid #ccc;
+  border-radius: 0 0 5pt 5pt;
+  margin-top: 0;
+  border-top: thin solid #ccc;
 }
 
-.doctest[data-status='FAIL'] .doctestResult div.sourceCode {
-        border-radius: 0 0 0 0;
-        margin-bottom: 0;
+.doctest[data-status="FAIL"] .doctestResult div.sourceCode {
+  border-radius: 0 0 0 0;
+  margin-bottom: 0;
 }
 
-.doctest[data-status='FAIL'] .doctestResult pre.sourceCode {
-        border-color: #933;
+.doctest[data-status="FAIL"] .doctestResult pre.sourceCode {
+  border-color: #933;
 }
 
 .doctest .doctestExpect div.sourceCode {
-        border-radius: 0 0 5pt 5pt;
-        margin-top: 0;
-        border-top: thin solid #ccc;
+  border-radius: 0 0 5pt 5pt;
+  margin-top: 0;
+  border-top: thin solid #ccc;
 }
 
 .doctest .doctestExpect pre.sourceCode:before {
-        content: "Expected: ";
+  content: "Expected: ";
 }
 
 .doctestExpect pre.sourceCode {
-        border-color: #888;
+  border-color: #888;
 }
 
 footer {
-        background: #eee;
-        padding: 0.5em 0 0.5em 0;
+  background: #eee;
+  padding: 0.5em 0 0.5em 0;
 }
 
 blockquote {
-        border-left: thick solid #888;
-        padding: 10pt 10pt 10pt 20pt;
-        margin-left: 2em;
+  border-left: thick solid #888;
+  padding: 10pt 10pt 10pt 20pt;
+  margin-left: 2em;
 }
 
 table {
-        margin-left: 2em;
-        margin-right: 2em;
-        border-left: thick solid #888;
-        background: white;
-        border-radius: 5pt;
-        box-shadow: 1px 1px 3px 0px #ccc;
+  margin-left: 2em;
+  margin-right: 2em;
+  border-left: thick solid #888;
+  background: white;
+  border-radius: 5pt;
+  box-shadow: 1px 1px 3px 0px #ccc;
 }
 
-td, th {
-        padding: 2pt 5pt 2pt 5pt;
+td,
+th {
+  padding: 2pt 5pt 2pt 5pt;
 }
 
 th {
-        border-bottom: solid thin black;
+  border-bottom: solid thin black;
 }
 
 tr:nth-child(even) {
-        background-color: #eee;
+  background-color: #eee;
 }
 
 code {
-        color: #bd2130;
-        font-family: "Source Code Pro", monospace;
-        font-weight: 400;
-        font-size: smaller;
+  color: #bd2130;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-size: smaller;
 }
 
 .fold-block {
-        margin-right: 20pt;
-        margin-bottom: 20pt;
+  margin-right: 20pt;
+  margin-bottom: 20pt;
 }
 
 .fold-block div.sourceCode {
-        margin-left: 30pt;
-        margin-right: 10pt;
+  margin-left: 30pt;
+  margin-right: 10pt;
 }
 
 .fold-toggle {
-        text-align: left;
-        font-family: "Cantarell", sans-serif;
-        /*font-size: 13pt;*/
-        font-weight: 400;
-        font-style: italic;
-        margin-bottom: 3pt;
+  text-align: left;
+  font-family: "Cantarell", sans-serif;
+  /*font-size: 13pt;*/
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 3pt;
 }
 
 figure {
-        margin: 0.2em 2em 1em 2em;
-        border-left: thick solid #568;
-        width:auto;
-        max-width: 90%;
-        box-shadow: 1px 1px 3px 0px #ccc;
-        border-radius: 5pt;
-        padding-bottom: 5pt;
-        text-align: center;
+  margin: 0.2em 2em 1em 2em;
+  background: rgb(255, 255, 255);
+  border-left: thick solid #568;
+  width: auto;
+  max-width: 90%;
+  box-shadow: 3px 10px 10px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 7pt;
+  padding-bottom: 5pt;
+  text-align: center;
 }
 
 figure img {
-        text-align: center;
-        max-width: 100%;
-        border-radius: 0 5pt 0 0;
-        height:auto;
-        max-height: 400px;
+  text-align: center;
+  max-width: 100%;
+  border-radius: 0 5pt 0 0;
+  height: auto;
+  max-height: 500px;
 }
 
 figcaption {
-        font-style: italic;
-        margin: 5pt 5pt 5pt 5pt;
+  font-style: italic;
+  margin: 5pt 5pt 5pt 5pt;
 }
