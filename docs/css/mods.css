@@ -1,4 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Zilla+Slab:300,400,500&display=swap");
+:root {
+  --text: black;
+  --bkg: rgba(240, 240, 240, 0.945);
+  --card-bkg: white;
+  --shadow: rgba(10, 10, 10, 0.5);
+  --brightness: 100%;
+}
+.dark-theme {
+  --text: #e3e5eb;
+  --bkg: #121212;
+  --card-bkg: rgb(39, 39, 39);
+  --shadow: rgb(0, 10, 10, 0.5);
+  --brightness: 80%;
+}
 
 body {
   font-family: "Zilla Slab", serif;
@@ -6,13 +20,23 @@ body {
   font-weight: 300;
   min-height: 100vh;
 }
-
-body p {
-  text-align: justify;
+/* darkmode button */
+.container-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
 }
 
 main {
-  background: #eee;
+  background-color: var(--bkg);
+  color: var(--text);
+  transition: background-color 0.3s;
+}
+
+body p {
+  text-align: justify;
 }
 
 h1 {
@@ -21,7 +45,7 @@ h1 {
   text-align: center;
   font-size: 30;
   font-weight: 580;
-  border-bottom: thin solid black;
+  border-bottom: thin solid tan;
 }
 
 h2 {
@@ -65,7 +89,8 @@ div.sourceCode {
   padding: 0;
   margin: 0.2em 2em 1em 2em;
   border-radius: 5pt;
-  box-shadow: 1px 1px 3px 0px #ccc;
+  background-color: var(--card-bkg);
+  box-shadow: 3px 5px 5px 0px var(--shadow);
 }
 
 pre.sourceCode {
@@ -187,9 +212,9 @@ tr:nth-child(even) {
 }
 
 code {
-  color: #bd2130;
+  color: #ce4654;
   font-family: "Source Code Pro", monospace;
-  font-weight: 400;
+  font-weight: 500;
   font-size: smaller;
 }
 
@@ -213,7 +238,7 @@ code {
 }
 
 figure {
-  margin: 0.2em 2em 1em 2em;
+  margin: auto;
   background: rgb(255, 255, 255);
   border-left: thick solid #568;
   width: auto;
@@ -235,4 +260,5 @@ figure img {
 figcaption {
   font-style: italic;
   margin: 5pt 5pt 5pt 5pt;
+  color: #121212;
 }

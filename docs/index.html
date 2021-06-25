@@ -12,6 +12,7 @@
     <style type="text/css">
       code {
         white-space: pre-wrap;
+        color: chartreuse;
       }
       span.smallcaps {
         font-variant: small-caps;
@@ -152,7 +153,7 @@
       code span.ex {
       } /* Extension */
       code span.fl {
-        color: #0000cf;
+        color: #8f8ff8;
       } /* Float */
       code span.fu {
         color: #000000;
@@ -189,7 +190,7 @@
         color: #4e9a06;
       } /* String */
       code span.va {
-        color: #000000;
+        color: #4e9a06;
       } /* Variable */
       code span.vs {
         color: #4e9a06;
@@ -200,6 +201,50 @@
         font-style: italic;
       } /* Warning */
     </style>
+    <style>
+      /* Light Mode Button Styles
+      --------------------------- */
+
+      .light-mode-button {
+        background: 0;
+        border: 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        height: 40px;
+        width: 100px;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0);
+      }
+
+      .light-mode-button:focus {
+        outline: none; /* Not ideal for accessibility */
+      }
+
+      .light-mode-button span:nth-child(1) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: #d6d7db;
+        box-shadow: inset 1px 1px 3px 0 rgb(0 0 0 / 40%);
+        transition: 0.3s;
+      }
+
+      .light-mode-button span:nth-child(2) {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 50%;
+        box-shadow: 1px 1px 2px 0 rgb(0 0 0 / 40%);
+        transition: 0.3s;
+      }
+    </style>
+
     <!-- Bootstrap 4.5.0 stylesheet -->
     <link
       rel="stylesheet"
@@ -250,6 +295,18 @@
 
     <main role="main" class="flex-fill">
       <div class="container my-5">
+        <div class="container-button">
+          <h3>Dark Mode Toggle</h3>
+          <button
+            class="light-mode-button"
+            aria-label="Toggle Light Mode"
+            onclick="toggle_light_mode()"
+          >
+            <span id="b1"></span>
+            <span id="b2"></span>
+          </button>
+        </div>
+
         <p>
           <a href="https://entangled.github.io/"
             ><img
@@ -257,6 +314,7 @@
               alt="Entangled badge"
           /></a>
         </p>
+
         <p>
           This repository contains codes for doing N-Body simulation using
           particle-pair and particle mesh methods.
@@ -449,6 +507,52 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Dark Mode -->
+    <script>
+      b1 = document.getElementById("b1");
+      b2 = document.getElementById("b2");
+
+      if (localStorage.getItem("theme") == null) {
+        localStorage.setItem("theme", "light");
+        b1.style.backgroundColor = "#d6d7db";
+        b2.style.left = "5px";
+        b2.style.color = "#d6d7db";
+        b2.style.backgroundColor = "#fff";
+      }
+
+      let localData = localStorage.getItem("theme");
+      if (localData == "light") {
+        document.body.classList.remove("dark-theme");
+        b1.style.backgroundColor = "#d6d7db";
+        b2.style.left = "5px";
+        b2.style.color = "#d6d7db";
+        b2.style.backgroundColor = "#fff";
+      } else if (localData == "dark") {
+        document.body.classList.add("dark-theme");
+        b1.style.backgroundColor = "#ced4e2";
+        b1.style.color = "#141516";
+        b2.style.left = "65px";
+        b2.style.backgroundColor = "#141516";
+      }
+
+      function toggle_light_mode() {
+        document.body.classList.toggle("dark-theme");
+        if (document.body.classList.contains("dark-theme")) {
+          localStorage.setItem("theme", "dark");
+          b1.style.backgroundColor = "#ced4e2";
+          b1.style.color = "#141516";
+          b2.style.left = "65px";
+          b2.style.backgroundColor = "#141516";
+        } else {
+          localStorage.setItem("theme", "light");
+          b1.style.backgroundColor = "#d6d7db";
+          b2.style.left = "5px";
+          b2.style.color = "#d6d7db";
+          b2.style.backgroundColor = "#fff";
+        }
+      }
+    </script>
 
     <!-- Mathjax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
