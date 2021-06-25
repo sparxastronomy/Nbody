@@ -82,4 +82,7 @@ This code implementation is based on the code implemented by <a href='https://gi
 
 
 # 2D Nbody Simulation
-This simulation will incorporate Friedmann's Equation and will be a more realistics simulation
+This simulation will incorporate Friedmann's Equation and will be a more realistics simulation      
+
+## Maths required         
+Deriving all the thing in great detail won't be possible, however I'll try to write reasonable explations for all the steps. For detailed text one should refer to Barbara yden's book "Introduction to Cosmology" [@Ryden2017] and Andrew Liddle's book "Introduction to Modern Cosmology" [@liddle2015introduction]

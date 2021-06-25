@@ -12,7 +12,6 @@
     <style type="text/css">
       code {
         white-space: pre-wrap;
-        color: chartreuse;
       }
       span.smallcaps {
         font-variant: small-caps;
@@ -153,7 +152,7 @@
       code span.ex {
       } /* Extension */
       code span.fl {
-        color: #8f8ff8;
+        color: #0000cf;
       } /* Float */
       code span.fu {
         color: #000000;
@@ -190,7 +189,7 @@
         color: #4e9a06;
       } /* String */
       code span.va {
-        color: #4e9a06;
+        color: #000000;
       } /* Variable */
       code span.vs {
         color: #4e9a06;
@@ -201,50 +200,6 @@
         font-style: italic;
       } /* Warning */
     </style>
-    <style>
-      /* Light Mode Button Styles
-      --------------------------- */
-
-      .light-mode-button {
-        background: 0;
-        border: 0;
-        box-sizing: border-box;
-        cursor: pointer;
-        height: 40px;
-        width: 100px;
-        position: relative;
-        border: 1px solid rgba(255, 255, 255, 0);
-      }
-
-      .light-mode-button:focus {
-        outline: none; /* Not ideal for accessibility */
-      }
-
-      .light-mode-button span:nth-child(1) {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100px;
-        height: 40px;
-        border-radius: 20px;
-        background-color: #d6d7db;
-        box-shadow: inset 1px 1px 3px 0 rgb(0 0 0 / 40%);
-        transition: 0.3s;
-      }
-
-      .light-mode-button span:nth-child(2) {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        width: 30px;
-        height: 30px;
-        background-color: #fff;
-        border-radius: 50%;
-        box-shadow: 1px 1px 2px 0 rgb(0 0 0 / 40%);
-        transition: 0.3s;
-      }
-    </style>
-
     <!-- Bootstrap 4.5.0 stylesheet -->
     <link
       rel="stylesheet"
@@ -306,7 +261,6 @@
             <span id="b2"></span>
           </button>
         </div>
-
         <p>
           <a href="https://entangled.github.io/"
             ><img
@@ -314,7 +268,6 @@
               alt="Entangled badge"
           /></a>
         </p>
-
         <p>
           This repository contains codes for doing N-Body simulation using
           particle-pair and particle mesh methods.
@@ -478,7 +431,7 @@
           <figcaption>Energy evolution plot of the simulation</figcaption>
         </figure>
         <p><span class="math display">\[ \text{Have fun with this}\]</span></p>
-        <h2 id="credits">Credits</h2>
+        <h3 id="credits">Credits</h3>
         <p>
           This code implementation is based on the code implemented by
           <a href="https://github.com/pmocz/nbody-python">Phillip Mocaz</a>
@@ -488,26 +441,20 @@
           This simulation will incorporate Friedmann’s Equation and will be a
           more realistics simulation
         </p>
+        <h2 id="maths-required">Maths required</h2>
+        <p>
+          Deriving all the thing in great detail won’t be possible, however I’ll
+          try to write reasonable explations for all the steps. For detailed
+          text one should refer to Barbara yden’s book “Introduction to
+          Cosmology”
+          <span class="citation" data-cites="Ryden2017">[@Ryden2017]</span> and
+          Andrew Liddle’s book “Introduction to Modern Cosmology”
+          <span class="citation" data-cites="liddle2015introduction"
+            >[@liddle2015introduction]</span
+          >
+        </p>
       </div>
     </main>
-
-    <!-- Bootstrap 4.5.0 -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-
     <!-- Dark Mode -->
     <script>
       b1 = document.getElementById("b1");
@@ -553,6 +500,23 @@
         }
       }
     </script>
+
+    <!-- Bootstrap 4.5.0 -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Mathjax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
