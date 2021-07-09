@@ -152,7 +152,7 @@
       code span.ex {
       } /* Extension */
       code span.fl {
-        color: #0000cf;
+        color: #6c81f8;
       } /* Float */
       code span.fu {
         color: #000000;
@@ -189,7 +189,7 @@
         color: #4e9a06;
       } /* String */
       code span.va {
-        color: #000000;
+        color: #377447;
       } /* Variable */
       code span.vs {
         color: #4e9a06;
@@ -215,7 +215,7 @@
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
     <!--  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
   </head>
   <body class="d-flex flex-column">
     <nav id="TOC" class="navbar navbar-dark bg-dark">
@@ -269,12 +269,8 @@
           /></a>
         </p>
         <p>
-          This
-          <a href="https://github.com/sparxastronomy/Nbody" target="_blank"
-            >repository</a
-          >
-          contains codes for doing N-Body simulation using particle-pair and
-          particle mesh methods.
+          This repository contains codes for doing N-Body simulation using
+          particle-pair and particle mesh methods.
         </p>
         <h1 id="d-nbody-simulation">3D Nbody Simulation</h1>
         <p>
@@ -449,7 +445,7 @@
         <p>
           Deriving all the thing in great detail won’t be possible, however I’ll
           try to write reasonable explations for all the steps. For detailed
-          text one should refer to Barbara Ryden’s book “Introduction to
+          text one should refer to Barbara yden’s book “Introduction to
           Cosmology”
           <span class="citation" data-cites="Ryden2017">[@Ryden2017]</span> and
           Andrew Liddle’s book “Introduction to Modern Cosmology”
@@ -457,8 +453,30 @@
             >[@liddle2015introduction]</span
           >
         </p>
+        <h2 id="simulation">Simulation</h2>
+        <p>
+          The code is structured in the following manner:<br />
+          - <strong><em>Cosmology</em></strong> : This is for getting the
+          Hubble’s Constant and other pramters such as
+          <span class="math inline">\(a\)</span>,
+          <span class="math inline">\(\dot{a}\)</span>, and
+          <span class="math inline">\(\Omega_i~&#39;s\)</span><br />
+          - <strong><em>Mass deposition</em></strong> : Particle mesh codes need
+          densiy as a function of the mesh rather the particle mass.<br />
+          - <strong><em>Interpolation</em></strong> : We need to interpolate
+          back grid quantities onto the particle coordinates.<br />
+          - <strong><em>Integrator</em></strong> : The evoultion is described by
+          a Hamiltonian System of equation. We will use leap-frog integrator
+          which is a genric solrver for such system.<br />
+          - <strong><em>Poisson Solver</em></strong> : For solving the Poisson
+          equation governing the evoulution of density.<br />
+          - <strong><em>Intitalization</em></strong> : The inital perturbation
+          is given by <em>Zeldovich Apporximation</em><br />
+          - <strong><em>Main</em></strong> : For stiching everything together.
+        </p>
       </div>
     </main>
+
     <!-- Dark Mode -->
     <script>
       b1 = document.getElementById("b1");
@@ -504,7 +522,6 @@
         }
       }
     </script>
-
     <!-- Bootstrap 4.5.0 -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

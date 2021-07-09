@@ -85,4 +85,14 @@ This code implementation is based on the code implemented by <a href='https://gi
 This simulation will incorporate Friedmann's Equation and will be a more realistics simulation      
 
 ## Maths required         
-Deriving all the thing in great detail won't be possible, however I'll try to write reasonable explations for all the steps. For detailed text one should refer to Barbara yden's book "Introduction to Cosmology" [@Ryden2017] and Andrew Liddle's book "Introduction to Modern Cosmology" [@liddle2015introduction]
+Deriving all the thing in great detail won't be possible, however I'll try to write reasonable explations for all the steps. For detailed text one should refer to Barbara yden's book "Introduction to Cosmology" [@Ryden2017] and Andrew Liddle's book "Introduction to Modern Cosmology" [@liddle2015introduction]       
+
+## Simulation
+The code is structured in the following manner:     
+    - ***Cosmology*** : This is for getting the Hubble's Constant and other pramters such as $a$, $\dot{a}$, and $\Omega_i~'s$      
+    - ***Mass deposition*** : Particle mesh codes need densiy as a function of the mesh rather the particle mass.      
+    - ***Interpolation*** : We need to interpolate back grid quantities onto the particle coordinates.      
+    - ***Integrator*** : The evoultion is described by a Hamiltonian System of equation. We will use leap-frog integrator which is a genric solrver for such system.        
+    - ***Poisson Solver*** :  For solving the Poisson equation governing the evoulution of density.     
+    - ***Intitalization*** : The inital perturbation is given by *Zeldovich Apporximation*      
+    - ***Main*** : For stiching everything together.
