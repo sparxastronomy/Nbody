@@ -1,11 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
-from numba import jit
 from tqdm import tqdm
 
 
-@jit(nopython=False)
 def accleration(pos, mass, G, softening):
     """
     Calculate the acceleration on each particle due to Newton's Law 
@@ -44,7 +42,6 @@ def accleration(pos, mass, G, softening):
     return a
 
 
-@jit(nopython=False)
 def energy(pos, vel, mass, G):
     """
     Get kinetic energy (KE) and potential energy (PE) of simulation
@@ -85,7 +82,7 @@ def energy(pos, vel, mass, G):
     return KE, PE
 
 
-def main(N, tEnd, dt, softening=0.1, energyplot=False, plotRealTime=True):
+def main(N, tEnd, dt, softening=0.1, energyplot=True, plotRealTime=True):
     """
     N-body simulation main function
     Imput
@@ -100,8 +97,8 @@ def main(N, tEnd, dt, softening=0.1, energyplot=False, plotRealTime=True):
 
     # Simulation parameters
     t = 0                # current time of the simulation
-    G = 6.674*1e-11      # Newton's Gravitational Constant
-    plotRealTime = True  # switch on for plotting as the simulation goes along
+    G = 1.0              # Newton's Gravitational Constant
+    plotRealTime = False  # switch on for plotting as the simulation goes along
 
     # Generate Initial Conditions
 
@@ -162,7 +159,7 @@ def main(N, tEnd, dt, softening=0.1, energyplot=False, plotRealTime=True):
     ax1 = plt.axes(projection="3d")
 
     # Simulation Main Loop
-    for i in range(Nt):
+    for i in tqdm(range(Nt)):
         # (1/2) kick
         vel += acc * dt/2.0
 
@@ -224,7 +221,7 @@ def main(N, tEnd, dt, softening=0.1, energyplot=False, plotRealTime=True):
               ' Time = %5.2f s' % tEnd, fontsize=10)
 
     # Saving figure
-    plt.savefig('nbody'+str(N)+'.png', dpi=200, bbox_inches='tight')
+    #plt.savefig('nbody'+str(N)+'.png', dpi=200, bbox_inches='tight')
     plt.show()
 
     # energy evolution
@@ -245,9 +242,9 @@ def main(N, tEnd, dt, softening=0.1, energyplot=False, plotRealTime=True):
         plt.xlabel('Time', fontsize=8)
         plt.ylabel('Energy', fontsize=8)
         plt.title('Energy evolution', fontsize=10)
-        plt.legend(loc=1)
+        plt.legend(loc=2)
         # saving energy diagram
-        plt.savefig('nbody'+str(N)+'eng.png', dpi=200, bbox_inches='tight')
+        #plt.savefig('nbody'+str(N)+'eng.png', dpi=200, bbox_inches='tight')
         plt.show()
 
     return 0
@@ -255,5 +252,5 @@ def main(N, tEnd, dt, softening=0.1, energyplot=False, plotRealTime=True):
 
 if __name__ == "__main__":
     # main()
-    main(N=1000, tEnd=4.0, dt=0.1)
+    main(N=1000, tEnd=4.0, dt=0.01)
     # main_sim(10)
