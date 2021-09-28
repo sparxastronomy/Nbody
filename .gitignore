@@ -2,3 +2,12 @@
 __pycache__/*
 .vscode/*
 .ipynb_checkpoints/*
+docs/*.log
+docs/.cache
+docs/.DS_Store
+docs/src/.temp
+docs/node_modules
+docs/dist
+docs/!.env.example
+docs/.env
+docs/.env.*
