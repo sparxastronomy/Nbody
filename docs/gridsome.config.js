@@ -10,7 +10,7 @@ module.exports = {
     favicon: './src/assets/favicon.png',
     touchicon: './src/assets/favicon.png'
   },
-  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://sparxastronomy.github.io/Nbody'),
+  siteUrl: 'https://sparxastronomy.github.io/nbody',
   settings: {
     web: 'https://github.com/sparxastronomy/' || true,
     twitter: process.env.URL_TWITTER || false,
