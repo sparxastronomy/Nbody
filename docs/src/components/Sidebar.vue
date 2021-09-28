@@ -10,11 +10,11 @@
       class="pb-4 mb-4 border-ui-border"
       :class="{ 'border-b': index < sidebar.sections.length -1 }"
     >
-      <h3 class="pt-0 mt-0 mb-1 text-sm tracking-tight uppercase border-none">
+      <h3 class="pt-0 mt-0 mb-1 text-green-500 font-semibold text-2xl md:text-xl tracking-wider uppercase border-none">
         {{ section.title }}
       </h3>
 
-      <ul class="max-w-full pl-2 mb-0">
+      <ul class="max-w-full pl-3 text-xl mb-0">
         <li
           v-for="page in findPages(section.items)"
           :id="page.path"
@@ -24,7 +24,7 @@
         >
           <g-link
             :to="`${page.path}`"
-            class="flex items-center py-1 font-semibold"
+            class="flex items-center py-1 font-normal"
           >
            <span
               class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"

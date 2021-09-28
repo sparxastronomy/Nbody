@@ -5,12 +5,12 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Docc',
+  siteName: 'NBody Simulations',
   icon: {
     favicon: './src/assets/favicon.png',
     touchicon: './src/assets/favicon.png'
   },
-  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://example.com'),
+  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://sparxastronomy.github.io/Nbody'),
   settings: {
     web: 'https://github.com/sparxastronomy/' || true,
     twitter: process.env.URL_TWITTER || false,
@@ -35,7 +35,15 @@ module.exports = {
             title: 'Simple N Body Simulations',
             items: [
               '/docs/3d/intro/',
-              '/docs/3d/science/'
+              '/docs/3d/science/',
+              '/docs/3d/example/'
+            ]
+          },
+          {
+            title: 'Advance N Body Simulations',
+            items: [
+              '/docs/2d/intro/',
+              '/docs/2d/science/'
             ]
           }
         ]
@@ -76,7 +84,7 @@ module.exports = {
     {
       use: '@gridsome/plugin-google-analytics',
       options: {
-        id: (process.env.GA_ID ? process.env.GA_ID : 'XX-999999999-9')
+        id: (process.env.GA_ID ? process.env.GA_ID : 'G-8STNTT705S')
       }
     },
 

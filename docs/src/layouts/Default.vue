@@ -227,6 +227,16 @@ blockquote {
     katex{
       @apply mx-auto;
     }
+    img {
+      @apply px-1 mx-auto;
+      width: 95%;
+      background: white;
+      border-left: thick solid #568;
+      width: auto;
+      max-width: 90%;
+      box-shadow: 3px 10px 10px 0px rgba(26, 50, 61, 0.5);
+      border-radius: 1rem;
+      }
     
   }
 
@@ -271,7 +281,7 @@ blockquote {
 }
 
 code {
-  @apply px-1 py-1 text-ui-typo bg-ui-sidebar font-mono border-b border-r border-ui-border text-sm rounded;
+  @apply px-1 py-1 text-ui-typo bg-ui-sidebar font-mono border-b border-r border-ui-border text-lg rounded;
 }
 
 pre[class*="language-"] {
@@ -314,6 +324,7 @@ table {
 
 .sidebar {
   @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-all z-40;
+  @apply text-2xl tracking-wider;
   transform: translateX(-100%);
 
   &.open {
