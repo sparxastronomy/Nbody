@@ -11,3 +11,5 @@ docs/dist
 docs/!.env.example
 docs/.env
 docs/.env.*
+
+*/.ipynb_checkpoints
