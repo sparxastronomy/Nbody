@@ -13,3 +13,6 @@ docs/.env
 docs/.env.*
 
 */.ipynb_checkpoints
+
+# ignoring docs folder
+/docs

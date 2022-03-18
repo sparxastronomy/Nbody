@@ -1,5 +1,6 @@
 # Copyright 2022 Bipradeep Saha.
 # ==============================================================================
+# This file contains code to generate a 2D Gaussian Random Field (GRF)
 
 
 # importing main modules for computation

@@ -1,11 +1,19 @@
+"""
+Modified code with zero initial velocity fluctuations but 
+fluctuations to mass of particle which will represent the grid.
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 from numba import njit
 from tqdm import tqdm
+from GRF import gaussian_random_field, fftpoints
 
-# number of particles. Update here as well as in 'main' function
-N = 1000
+# Grid size.
+n = 256
+# Number of particles, Update here as well as in 'main' function
+N = int(n**3)
 
 
 @njit()
@@ -130,10 +138,16 @@ def main(N, tEnd, dt, softening=0.1, energyplot=True, plotRealTime=True):
 
     # Generate Initial Conditions
 
-    mass = 100.0*np.ones((N, 1))/N  # total mass of the system is 100
-    # randomly selected positions and velocities
-    #pos = np.random.randn(N, 3)
-    vel = np.random.randn(N, 3)
+    # Generate mass array with gaussian random fluctuations
+    mass = np.ones((n, n, n))
+    # adding random fluctuatuions to mass
+    for i in tqdm(range(n), "Generating mass Perturbations"):
+        mass[i] = mass[i] + \
+            gaussian_random_field(alpha=2, size=n, Normalize=False)
+    mass = mass.flatten().reshape((N, 1))
+
+    # zero velocity array
+    vel = np.random.rand(N, 3)
 
     # for uniform grid of particles
     pos = np.zeros((N, 3))  # creating a null arry
@@ -146,13 +160,6 @@ def main(N, tEnd, dt, softening=0.1, energyplot=True, plotRealTime=True):
             for x in range(maxindex):
                 pos[count] = [x, y, z]  # assigning to array
                 count += 1
-    # getting perturbations for grid
-    a = np.random.randn(N, 3) \
-        + np.random.uniform(low=-1.0, high=1.0, size=(N, 3))
-    # adding perturbations to the grid
-    pos = pos + (a/np.max(np.abs(a)))
-
-    del(a)
 
     # Convert to Center-of-Mass frame
     vel -= np.mean(mass * vel, 0) / np.mean(mass)
@@ -214,23 +221,23 @@ def main(N, tEnd, dt, softening=0.1, energyplot=True, plotRealTime=True):
             PE_save[i+1] = PE
 
         # plot in real time
-        if plotRealTime or (i == Nt-1):
-            plt.sca(ax1)
-            plt.cla()
-            # Next for lines are for plotting trails. Not adviseable for large N
-            #xx = pos_save[:, 0, max(i-50, 0):i+1]
-            #yy = pos_save[:, 1, max(i-50, 0):i+1]
-            #zz = pos_save[:, 2, max(i-50, 0):i+1]
-            # ax1.scatter3D(xx, yy, zz, s=5, color=[.3, 0.5, 1, 0.2])    #plotting trail
-            ax1.scatter3D(pos[:, 0], pos[:, 1], pos[:, 2],
-                          s=5, c=(pos[:, 2]), cmap='nipy_spectral')
+        # if plotRealTime or (i == Nt-1):
+            # plt.sca(ax1)
+            # plt.cla()
+            # # Next for lines are for plotting trails. Not adviseable for large N
+            # #xx = pos_save[:, 0, max(i-50, 0):i+1]
+            # #yy = pos_save[:, 1, max(i-50, 0):i+1]
+            # #zz = pos_save[:, 2, max(i-50, 0):i+1]
+            # # ax1.scatter3D(xx, yy, zz, s=5, color=[.3, 0.5, 1, 0.2])    #plotting trail
+            # ax1.scatter3D(pos[:, 0], pos[:, 1], pos[:, 2],
+            #               s=5, c=(pos[:, 2]), cmap='nipy_spectral')
 
-            ax1.set_title('time = %5.2f seconds' % t)
-            ax1.set_xlabel('x')
-            ax1.set_ylabel('y')
-            ax1.set_zlabel('z')
-            ax1.azim, ax1.elev = 60, 30
-            plt.pause(0.000001)
+            # ax1.set_title('time = %5.2f seconds' % t)
+            # ax1.set_xlabel('x')
+            # ax1.set_ylabel('y')
+            # ax1.set_zlabel('z')
+            # ax1.azim, ax1.elev = 60, 30
+            # plt.pause(0.000001)
 
     # adding proper labels to the plot and saving
     plt.sca(ax1)
@@ -249,7 +256,7 @@ def main(N, tEnd, dt, softening=0.1, energyplot=True, plotRealTime=True):
               ' Time = %5.2f s' % tEnd, fontsize=10)
 
     # Saving figure
-    #plt.savefig('nbody'+str(N)+'.png', dpi=200, bbox_inches='tight')
+    plt.savefig('nbody'+str(N)+'.png', dpi=200, bbox_inches='tight')
     plt.show()
 
     # energy evolution
@@ -280,4 +287,6 @@ def main(N, tEnd, dt, softening=0.1, energyplot=True, plotRealTime=True):
 
 if __name__ == "__main__":
     # main()
-    main(N=1000, tEnd=4.0, dt=0.01)
+    n = 256
+    N = int(n**3)
+    main(N=N, tEnd=4.0, dt=0.01, plotRealTime=True, energyplot=True)

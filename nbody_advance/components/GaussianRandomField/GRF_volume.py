@@ -1,10 +1,14 @@
+"""
+Generate a simulation volume with mass intialized by GRF.
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 
 from GRF import fftpoints, gaussian_random_field
-n = 256
+n = 128
 x, y, z = np.mgrid[:n, :n, :n]
 grid = []
 for i in tqdm(range(n), "Iteration:"):
